@@ -69,7 +69,7 @@ function buildProfileEmbed(u: any, profile: any, profileUrl: string, userTracks?
   if (tags.length) embed.addFields({ name: "🏷 Tags", value: tags.map(t => `\`${t}\``).join(" "), inline: false });
 
   // Alias
-  if (u.alias) embed.addFields({ name: "🔗 Alias", value: `hexed.bio/${u.alias}`, inline: true });
+  if (u.alias) embed.addFields({ name: "🔗 Alias", value: `hexed.at/${u.alias}`, inline: true });
 
   // Music tracks
   if (userTracks?.length) {
@@ -98,7 +98,7 @@ function buildProfileButton(profileUrl: string) {
 function getProfileUrl(u: any) {
   const domain = process.env.REPL_DOMAINS
     ? `https://${process.env.REPL_DOMAINS.split(",")[0].trim()}`
-    : "https://hexed.bio";
+    : "https://hexed.at";
   return `${domain}/${u.username}`;
 }
 
@@ -208,7 +208,7 @@ export async function startBot() {
       }
       const domain = process.env.REPL_DOMAINS
         ? `https://${process.env.REPL_DOMAINS.split(",")[0].trim()}`
-        : "https://hexed.bio";
+        : "https://hexed.at";
 
       const medals = ["🥇", "🥈", "🥉"];
       const rows = top.map((u: any, i: number) => {
